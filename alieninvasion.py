@@ -23,17 +23,32 @@ class AlienInvasion:
 
 
     def run_game(self):
+        while True:
+             self.check_events()
+             self.update_screen()
 
-            while True:
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        sys.exit()
 
-                self.screen.fill(self.bg_color)
+    def _check_events(self):
+         for event in pygame.event.get():
+             if event.type == pygame.QUIT:
+                  sys.exit()
+             elif event.type == pygame.KEYDOWN:
+                 if event.key == pygame.K_RIGHT:
+                     #move ship right
+                     self.ship.rect.x += 1
+            
 
-                pygame.display.flip()
 
-                self.ship.blitme()
+    def _updatde_screen(self):
+
+        self.screen.fill(self.bg_color)
+        self.ship.blitme()
+
+        pygame.display.flip()
+
+        
+
+    
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
