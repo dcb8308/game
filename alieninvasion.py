@@ -31,6 +31,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self._update_screen()
             #get rid of bullets that dissapear
             for bullet in self.bullets.copy():
@@ -117,6 +118,8 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
         pygame.display.flip()
+    def _update_aliens(self):
+        self.aliens.update()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
